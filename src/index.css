@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-cyan: #00f3ff;
+  --color-neon-purple: #bc13fe;
+  --color-neon-pink: #ff00ff;
+  --color-neon-blue: #0000ff;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white selection:bg-neon-cyan/30;
+  }
+}
+
+@layer components {
+  .neon-border {
+    @apply border border-neon-cyan/50 shadow-[0_0_15px_rgba(0,243,255,0.3)];
+  }
+  
+  .neon-text {
+    @apply text-neon-cyan drop-shadow-[0_0_8px_rgba(0,243,255,0.8)];
+  }
+  
+  .neon-button {
+    @apply bg-transparent border border-neon-cyan text-neon-cyan px-6 py-2 rounded-full 
+           hover:bg-neon-cyan hover:text-black transition-all duration-300 
+           shadow-[0_0_10px_rgba(0,243,255,0.5)] active:scale-95;
+  }
+
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+
+  .prose code::before,
+  .prose code::after {
+    content: "" !important;
+  }
+
+  .prose pre {
+    @apply bg-transparent p-0 m-0 overflow-visible;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #00f3ff;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #bc13fe;
+}
